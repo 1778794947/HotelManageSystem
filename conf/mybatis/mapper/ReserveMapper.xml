@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ecjtu.hotel.dao.ReserveMapper">
+
+	<select id="getAllReserve"
+		resultType="com.ecjtu.hotel.pojo.Reserve">
+		select * from Reserve
+	</select>
+	<select id="getReserveById" resultType="com.ecjtu.hotel.pojo.Reserve">
+	    select * from reserve where  id=#{id}
+	</select>
+
+
+	<select id="deleteReserveById" resultType="int">
+		delete from Reserve
+		where id=#{id}
+	</select>
+
+
+	<update id="updateReserveById"
+		parameterType="com.ecjtu.hotel.pojo.Reserve">
+		update Reserve set
+		name=#{name},phone=#{phone},roomtype
+		=#{roomtype },arraytime=#{arraytime},leavetime=#{leavetime}
+		where
+		id=#{id}
+	</update>
+
+
+
+	<insert id="addReserve"
+		parameterType="com.ecjtu.hotel.pojo.Reserve">
+		insert into Reserve
+		(name,phone,roomtype,arraytime,leavetime)
+		values
+		(#{name},#{phone},#{roomtype},#{arraytime},#{leavetime})
+	</insert>
+
+</mapper>

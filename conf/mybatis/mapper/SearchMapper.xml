@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- User SearchUserByName(String username); Staff SearchStaffByName(String 
+	staffname); Room SearchRoomByType(String roomtype); Reserve SearchReserveByName(String 
+	reservename); Income SearechIncomeByName(String incomename); Guest SearchGuestByName(String 
+	guestname); Expend SearchExpendByName(String expendname); -->
+<mapper namespace="com.ecjtu.hotel.dao.SearchMapper">
+	<select id="SearchUserByName"
+		resultType="com.ecjtu.hotel.pojo.User">
+		select * from user_info where name = #{name}
+	</select>
+
+	<select id="SearchStaffByName"
+		resultType="com.ecjtu.hotel.pojo.Staff">
+		select * from staff where name = #{name}
+	</select>
+
+	<select id="SearchRoomByName"
+		resultType="com.ecjtu.hotel.pojo.Room">
+		select * from room where roomtype = #{roomtype}
+	</select>
+
+	<select id="SearchReserveByName"
+		resultType="com.ecjtu.hotel.pojo.Reserve">
+		select * from reserve where name = #{name}
+	</select>
+
+	<select id="SearchIncomeByName"
+		resultType="com.ecjtu.hotel.pojo.Income">
+		select * from income where name = #{name}
+	</select>
+
+	<select id="SearchGuestByName"
+		resultType="com.ecjtu.hotel.pojo.Guest">
+		select * from guest where name = #{name}
+	</select>
+
+	<select id="SearchExpendByName"
+		resultType="com.ecjtu.hotel.pojo.Expend">
+		select * from expend where name = #{name}
+
+	</select>
+</mapper>

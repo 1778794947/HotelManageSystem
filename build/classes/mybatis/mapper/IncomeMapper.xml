@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ecjtu.hotel.dao.IncomeMapper">
+
+	<select id="getAllIncomes"
+		resultType="com.ecjtu.hotel.pojo.Income">
+		select * from income
+	</select>
+	
+	<select id="getIncomeById"
+		resultType="com.ecjtu.hotel.pojo.Income">
+		select * from income where id=#{id}
+	</select>
+
+
+	<select id="deleteIncomeById" parameterType="int">
+		delete from income
+		where id=#{id}
+	</select>
+
+
+	<update id="updateIncomeById"
+		parameterType="com.ecjtu.hotel.pojo.Income">
+		update income set
+		incomename=#{incomename},detail=#{detail},money=#{money},operator=#{operator},remark=#{remark}
+		where id=#{id}
+	</update>
+
+
+	<insert id="addIncome"
+		parameterType="com.ecjtu.hotel.pojo.Income">
+		insert into income
+		(incomename,detail,money,operator,remark) values
+		(#{incomename},#{detail},#{money},#{operator},#{remark})
+	</insert>
+
+</mapper>

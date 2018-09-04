@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Expend getExpendById(Integer id);
+
+	int deleteExpendById(Integer id);
+
+	int addExpend(Expend expend);
+
+	List<Expend> getExpends();
+
+	int updateExpend(Expend expend); -->
+<mapper namespace="com.ecjtu.hotel.dao.ExpendMapper">
+
+
+	<select id="getExpenda"
+		resultType="com.ecjtu.hotel.pojo.Expend">
+		select * from Expend 
+	</select>
+
+
+	<select id="getExpendById" parameterType="int"
+		resultType="com.ecjtu.hotel.pojo.Expend">
+		select * from Expend where id = #{id}
+	</select>
+
+
+	<select id="deleteExpendById" parameterType="int">
+		delete from Expend where id=#{id}
+	</select>
+
+	<update id="updateExpend"
+		parameterType="com.ecjtu.hotel.pojo.Expend">
+		update Expend set
+		expendname=#{expendname},money=#{money},time=#{time},operator=#{operator},remark=#{remark}
+		where id=#{id}
+	</update>
+
+
+	<insert id="addExpend"
+		parameterType="com.ecjtu.hotel.pojo.Expend">
+		insert into expend (expendname,money,time,operator,remark) values
+		(#{expendname},#{money},#{time},#{operator},#{remark})
+	</insert>
+
+</mapper>

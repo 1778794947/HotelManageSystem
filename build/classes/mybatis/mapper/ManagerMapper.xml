@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecjtu.hotel.dao.ManagerMapper">
+
+	<select id="getManagers"
+		resultType="com.ecjtu.hotel.pojo.Manager">
+		select * from manager_info
+	</select>
+
+
+	<select id="getManagerById" parameterType="int"
+		resultType="com.ecjtu.hotel.pojo.Manager">
+		select * from manager_info where mid = #{mId}
+	</select>
+
+
+	<select id="deleteManagerById" parameterType="int">
+		delete from manager_info where mid=#{mId}
+	</select>
+
+
+	<select id="getManagerByName" parameterType="String"
+		resultType="com.ecjtu.hotel.pojo.Manager">
+		select * from manager_info where mname = #{mName}
+	</select>
+
+
+	<select id="getManager"
+		parameterType="com.ecjtu.hotel.pojo.Manager"
+		resultType="com.ecjtu.hotel.pojo.Manager">
+		select * from manager_info where mname = #{mName} and mpsd=#{mPsd}
+	</select>
+
+
+	<update id="updateManager"
+		parameterType="com.ecjtu.hotel.pojo.Manager">
+		update manager_info set mname=#{mName},mpsd=#{mPsd} where mid=#{mId}
+	</update>
+
+
+</mapper>

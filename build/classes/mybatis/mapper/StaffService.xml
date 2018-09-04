@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ecjtu.hotel.dao.StaffMapper">
+
+	<select id="getAllStaff" resultType="com.ecjtu.hotel.pojo.Staff">
+		select * from staff
+	</select>
+
+
+	<select id="deleteStaffById" parameterType="int">
+		delete from staff
+		where id=#{id}
+	</select>
+
+
+	<update id="updateStaffById"
+		parameterType="com.ecjtu.hotel.pojo.Staff">
+		update staff set
+		name=#{name},idnum=#{idnum},department
+		=
+		#{department },post=#{post},salary=#{salary},remark=#{remark}
+		where
+		id=#{id}
+	</update>
+
+
+	<insert id="addStaff" parameterType="com.ecjtu.hotel.pojo.Staff">
+		insert into staff
+		(name,idnum,department,post,salary,remark)
+		values
+		(#{name},#{idnum},#{department},#{post},#{salary},#{remark})
+	</insert>
+
+</mapper>
+<!-- int addStaff(Staff staff); int deleteStaffById(Integer id); int updateStaffById(Staff 
+	staff); List<Staff> getAllStaff(); Staff getStaffById(Integer id); -->

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.ecjtu.hotel.dao.GuestMapper">
+
+
+	<select id="getAllGuest" resultType="com.ecjtu.hotel.pojo.Guest">
+		select * from guest
+	</select>
+
+
+	<select id="getGuestByUserId" parameterType="int"
+		resultType="com.ecjtu.hotel.pojo.Guest">
+		select * from guest where id = #{id}
+	</select>
+
+
+	<select id="deleteGuestById" parameterType="int">
+		delete from guest where id=#{id}
+	</select>
+
+
+
+
+
+	<update id="updateGuest"
+		parameterType="com.ecjtu.hotel.pojo.Guest">
+		update guest set
+		name=#{name},idnum=#{idnum},roomnum=#{roomnum},phone=#{phone},arraytime
+		= #{arraytime},leavetime =
+		#{leavetime},receivable=#{receivable},deposit=#{deposit},remark=#{remark}
+		where id=#{id}
+	</update>
+
+
+	<insert id="addGuest" parameterType="com.ecjtu.hotel.pojo.Guest">
+		insert into guest
+		(name,idnum,roomnum,phone,arraytime,leavetime,receivable,deposit,remark)
+		values
+		(#{name},#{roomnum},#{phone},#{arraytime},#{leavetime},#{receivable},#{deposit},#{remark})
+	</insert>
+
+</mapper>

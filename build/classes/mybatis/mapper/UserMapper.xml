@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecjtu.hotel.dao.UserMapper">
+
+	<select id="getUsers" resultType="com.ecjtu.hotel.pojo.User">
+		select * from User_info
+	</select>
+
+
+	<select id="getUserById" parameterType="int"
+		resultType="com.ecjtu.hotel.pojo.User">
+		select * from User_info where id = #{id}
+	</select>
+
+
+	<select id="deleteUserById" parameterType="int">
+		delete from User_info
+		where id=#{id}
+	</select>
+
+
+	<select id="getUserByName" parameterType="String"
+		resultType="com.ecjtu.hotel.pojo.User">
+		select * from User_info where name = #{name}
+	</select>
+
+
+	<select id="getUser" parameterType="com.ecjtu.hotel.pojo.User"
+		resultType="com.ecjtu.hotel.pojo.User">
+		select * from User_info where
+		name = #{name} and
+		password=#{password}
+	</select>
+
+
+	<update id="updateUser"
+		parameterType="com.ecjtu.hotel.pojo.User">
+		update User_info set name=#{name},password=#{password}
+		where id=#{id}
+	</update>
+
+
+	<insert id="registerUser"
+		parameterType="com.ecjtu.hotel.pojo.User">
+		insert into user_info (name,password,idcard) values
+		(#{name},#{password},#{idcard})
+	</insert>
+
+</mapper>

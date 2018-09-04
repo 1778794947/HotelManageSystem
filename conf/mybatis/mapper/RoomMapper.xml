@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecjtu.hotel.dao.RoomMapper">
+
+	<select id="getAllRooms" resultType="com.ecjtu.hotel.pojo.Room">
+		select * from room
+	</select>
+
+
+	<select id="getRoomById" parameterType="int"
+		resultType="com.ecjtu.hotel.pojo.Room">
+		select * from room where roomnum = #{roomnum}
+	</select>
+
+
+	<select id="deleteRoomById" parameterType="int">
+		delete from room where
+		roomnum=#{roomnum}
+	</select>
+
+
+	<select id="getRoomByStatus" parameterType="int"
+		resultType="com.ecjtu.hotel.pojo.Room">
+		select * room User_info where status = #{status}
+	</select>
+
+
+	<update id="updateRoomById"
+		parameterType="com.ecjtu.hotel.pojo.Room">
+		update room set name=#{name},password=#{password} where
+		roomnum=#{roomnum}
+	</update>
+
+
+	<insert id="addRoom" parameterType="com.ecjtu.hotel.pojo.Room">
+		insert into room
+		(roomtype,price,status) values
+		(#{roomtype},#{price},#{status})
+	</insert>
+
+</mapper>
